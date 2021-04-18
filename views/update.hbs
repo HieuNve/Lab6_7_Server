@@ -1,0 +1,41 @@
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+    <div class="container"><a class="navbar-brand" href="#">Tinder</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Back to home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="text-center text-white masthead">
+    <div class="masthead-content">
+        <div class="container">
+            <h2 class="masthead-heading mb-0"> <img style="width: 100px" src="assets/img/tinder.png"> Tinder</h2>
+
+        </div>
+    </div>
+    <div class="masthead-content"></div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
+<form action="/{{connectUsers._id}}/edit" method="post" enctype="multipart/form-data">
+    <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="username" type="text" placeholder="Tinder username .........." value="{{connectUsers.username}}">
+    <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px"  name="date" type="text" placeholder="Birthday .........." value="{{connectUsers.date}}">
+    <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="address" type="text" placeholder="Tinder address .........." value="{{connectUsers.email}}">
+    <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="master_phone" type="text" placeholder="Tinder master_phone .........." value="{{connectUsers.master_phone}}">
+    <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="sex" type="text" placeholder="Tinder sex .........." value="{{connectUsers.sex}}">
+    <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="Description" type="text" placeholder="Description .........." value="{{connectUsers.Description}}">
+    <input name="avatar" type="file" value="{{connectUsers.avatar}}">
+    <button  style="border-radius: 10px;width: 80px;height: 40px;color: white;background-color: #007bff" type="submit">SỬA</button>
+</form>
+<br>
+<footer class="py-5 bg-black">
+    <div class="container">
+        <p class="text-center text-white m-0 small">Copyright&nbsp;© Tinder 2021</p>
+    </div>
+</footer>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+

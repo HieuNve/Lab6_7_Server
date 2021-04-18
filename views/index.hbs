@@ -1,0 +1,20 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<form action="/insertUsername" method="post" enctype="multipart/form-data">
+    <input name="username" type="text" placeholder="Tinder username ..........">
+    <input name="password" type="text" placeholder="Tinder username ..........">
+    <input name="address" type="text" placeholder="Tinder username ..........">
+    <input name="master_phone" type="text" placeholder="Tinder username ..........">
+    <input name="avatar" type="file">
+    <button type="submit">insert</button>
+</form>
+{{#each users}}
+    <li>{{this._id}}</li>
+    <li>{{this.username}}</li>
+    <li>{{this.password}}</li>
+    <li>{{this.address}}</li>
+    <li>{{this.master_phone}}</li>
+    <li>{{this.avatar}}</li>
+    <li>----------------------------------------</li>
+{{/each}}
+

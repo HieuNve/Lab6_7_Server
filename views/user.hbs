@@ -1,0 +1,68 @@
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+        <div class="container"><a class="navbar-brand" href="#">Tinder</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Back to home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="text-center text-white masthead">
+        <div class="masthead-content">
+            <div class="container">
+                <h2 class="masthead-heading mb-0"> <img style="width: 100px" src="assets/img/tinder.png"> Tinder</h2>
+
+            </div>
+        </div>
+        <div class="masthead-content"></div>
+        <div class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="bg-circle-4 bg-circle"></div>
+    </header>
+
+
+    <form action="/insertUsername" method="post" enctype="multipart/form-data">
+        <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px;margin-left: 50px" name="username" type="text" placeholder="Tinder username ..........">
+        <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="date" type="text" placeholder="Birthday ..........">
+        <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="address" type="text" placeholder="Tinder address ..........">
+        <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="master_phone" type="text" placeholder="Master phone ..........">
+        <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="sex" type="text" placeholder="Tinder sex ..........">
+        <input style="width: 200px;height: 40px;border-radius: 10px;margin-top: 50px" name="Description" type="text" placeholder="Description ..........">
+        <input name="avatar" type="file">
+        <button style="border-radius: 10px;width: 80px;height: 40px;color: white;background-color: #007bff" type="submit">INSERT</button>
+    </form>
+    <br>
+<div style="margin-left: 50px">
+
+
+    {{#each users}}
+
+        <p><img style="width: 200px;height: 200px;border-radius: 100px" src="./assets/img/{{this.avatar}} "/></p>
+        <p>Họ và tên:  {{this.username}}</p>
+        <p>Ngày sinh:  {{this.date}}</p>
+        <p>Email:  {{this.email}}</p>
+        <p>Số điện thoại:  {{this.master_phone}}</p>
+        <p>Giới tính:  {{this.sex}}</p>
+        <p>Mô tả ngắn:  {{this.Description}}</p>
+
+        <div class="col">
+            <form action="/{{this._id}}" enctype="multipart/form-data" method="post">
+                <button class="btn btn-primary" type="submit" style="background: #007bff;width: 68.2125px;color: #ffffff;border: 1px #007bff">XÓA</button>
+            </form>
+
+            <form action="/{{this._id}}" enctype="multipart/form-data" method="get">
+                <button class="btn btn-primary" type="submit" style="background: #007bff;width: 68.2125px;color: #ffffff;border: 1px #007bff">SỬA</button>
+            </form>
+        </div>
+        <hr>
+    {{/each}}
+</div>
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <p class="text-center text-white m-0 small">Copyright&nbsp;© Tinder 2021</p>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
