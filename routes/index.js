@@ -53,6 +53,27 @@ router.get("/LogIn.html", function (request, response) {
 router.get("/index.html", function (request, response) {
   response.render("home");
 });
+let baseJson={
+    errorCode: undefined,
+    errorMessage:undefined,
+    data:undefined,
+}
+router.get('/getUser', function (req, res, next) {
+    var connectUsers = db.model('users', user);
+    connectUsers.find({},
+        function (error, users) {
+            if (error){
+                baseJson.errorCode = 400
+                baseJson.errorMessage = error
+                baseJson.data =[]
+            }else {
+                baseJson.errorCode = 200
+                baseJson.errorCode = 'thanh cong'
+                baseJson.data = users
+            }
+            res.send(baseJson);
+        })
+});
 
 router.get('/user.hbs', function(req, res, next) {
   var connectUsers = db.model('users', user);
