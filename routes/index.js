@@ -99,6 +99,32 @@ router.get('/:id/', function(req, res, next) {
     })
 });
 
+router.post('/insertUsername2',upload.single("avatar") ,function (req, res, next) {
+    var connectUser = db.model("users", user);
+    connectUser({
+        // username: String,
+        // date: String,
+        // email: String,
+        // master_phone: String,
+        // sex: String,
+        // Description: String,
+        // avatar: String,
+        username: req.body.username,
+        date: req.body.date,
+        email: req.body.address,
+        master_phone: req.body.master_phone,
+        sex: req.body.sex,
+        Description: req.body.Description,
+        // avatar: req.file.originalname
+    }).save(function (error) {
+        if(error){
+            res.json({})
+        }else{
+            res.json({code:200})
+        }
+    });
+});
+
 router.post('/insertUsername',upload.single("avatar") ,function (req, res, next) {
   var connectUser = db.model("users", user);
   connectUser({
@@ -124,6 +150,24 @@ router.post('/insertUsername',upload.single("avatar") ,function (req, res, next)
     }
   });
 });
+
+router.post('/:id/editApi', upload.single('avatar'), function (req, res) {
+    var connectUsers = db.model('users', user);
+    connectUsers.findByIdAndUpdate(req.params.id,
+        {
+            username: req.body.username,
+            password: req.body.password,
+            address: req.body.address,
+            master_phone: req.body.master_phone,
+            avatar: req.file.originalname
+        }, function (error){
+            if(error){
+                res.json({})
+            }else{
+                res.json({code:200})
+            }
+        });
+})
 
 router.post('/:id/edit', upload.single('avatar'), function (req, res) {
     var connectUsers = db.model('users', user);
